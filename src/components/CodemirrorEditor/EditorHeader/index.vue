@@ -493,7 +493,7 @@ function customStyle() {
         </div>
       </PopoverContent>
     </Popover>
-    <Button variant="outline" class="mx-2" @click="copy">
+    <Button id="btn_copy" variant="outline" class="mx-2" @click="copy">
       复制
     </Button>
 

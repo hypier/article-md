@@ -72,7 +72,7 @@ function onUpdate(val: boolean) {
 </script>
 
 <template>
-  <Button variant="outline" @click="prePost">
+  <Button id="btn_publish" variant="outline" @click="prePost">
     发布
   </Button>
 
