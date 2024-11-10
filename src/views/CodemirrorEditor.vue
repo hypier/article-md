@@ -375,7 +375,26 @@ function mdLocalToRemote() {
   }
 }
 
+function loadContentFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search)
+  const targetUrl = urlParams.get(`url`)
+
+  if (targetUrl) {
+    fetch(targetUrl)
+      .then(response => response.text())
+      .then((content) => {
+        // 更新编辑器内容
+        editorContent.value = content
+        editor.value?.setValue(content)
+      })
+      .catch((error) => {
+        console.error(`获取内容失败:`, error)
+      })
+  }
+}
+
 onMounted(() => {
+  loadContentFromUrl()
   initEditor()
   onEditorRefresh()
   mdLocalToRemote()
