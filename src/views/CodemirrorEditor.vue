@@ -43,6 +43,7 @@ const {
   formatContent,
   importMarkdownContent,
   resetStyleConfirm,
+  setEditorContent,
 } = store
 
 const {
@@ -380,16 +381,20 @@ function loadContentFromUrl() {
   const targetUrl = urlParams.get(`url`)
 
   if (targetUrl) {
-    fetch(targetUrl)
+    fetch(targetUrl, {
+      mode: `cors`,
+      headers: {
+        Accept: `text/plain`,
+      },
+    })
       .then(response => response.text())
       .then((content) => {
-        // 更新编辑器内容
-        console.log(`content`, content)
-        editorContent.value = content
-        editor.value?.setValue(content)
+        console.log(`content`, content.slice(0, 300))
+        setEditorContent(content)
       })
       .catch((error) => {
         console.error(`获取内容失败:`, error)
+        ElMessage.error(`获取内容失败：${error.message}`)
       })
   }
 }

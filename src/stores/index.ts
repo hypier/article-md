@@ -54,6 +54,12 @@ export const useStore = defineStore(`store`, () => {
   // 编辑区域内容
   const editorContent = useStorage(`__editor_content`, DEFAULT_CONTENT)
 
+  const setEditorContent = (content: string) => {
+    // editorContent.value = content
+    // toRaw(editor.value!).setValue(content)
+    useStorage(`__editor_content`, content)
+  }
+
   // 格式化文档
   const formatContent = () => {
     formatDoc((editor.value!).getValue()).then((doc) => {
@@ -436,6 +442,7 @@ export const useStore = defineStore(`store`, () => {
     setCssEditorValue,
     tabChanged,
     renameTab,
+    setEditorContent,
   }
 })
 
