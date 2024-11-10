@@ -389,7 +389,7 @@ function loadContentFromUrl() {
     })
       .then(response => response.text())
       .then((content) => {
-        content = content.replace(`https://images.weserv.nl/?url=`, ``)
+        content = content.replaceAll(`https://images.weserv.nl/?url=`, ``)
         console.log(`content`, content.slice(0, 300))
         setEditorContent(content)
       })
