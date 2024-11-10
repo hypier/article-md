@@ -55,8 +55,8 @@ export const useStore = defineStore(`store`, () => {
   const editorContent = useStorage(`__editor_content`, DEFAULT_CONTENT)
 
   const setEditorContent = (content: string) => {
-    // editorContent.value = content
-    // toRaw(editor.value!).setValue(content)
+    editorContent.value = content
+    toRaw(editor.value!).setValue(content)
     useStorage(`__editor_content`, content)
   }
 
