@@ -384,6 +384,7 @@ function loadContentFromUrl() {
       .then(response => response.text())
       .then((content) => {
         // 更新编辑器内容
+        console.log(`content`, content)
         editorContent.value = content
         editor.value?.setValue(content)
       })
