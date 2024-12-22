@@ -200,7 +200,7 @@ function customStyle() {
 
     <Popover>
       <PopoverTrigger>
-        <Button variant="outline">
+        <Button id="btn_style" variant="outline">
           <Paintbrush class="h-4 w-4" />
         </Button>
       </PopoverTrigger>
